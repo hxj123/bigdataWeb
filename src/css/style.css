@@ -27,7 +27,29 @@ a{
 }
 
 body{
+    position: relative;
     background-image: url(../img/bg.jpg);
+}
+
+#back{
+    position: absolute;
+    top: 50px;
+    right: 75px;
+    cursor:pointer;
+    display: flex;
+    align-items: center;
+    color: #3fa6c5;
+    font-size: 18px;
+}
+
+#back img{
+    width: 35px;
+    height: 33px;
+}
+
+#back:hover{
+    -webkit-filter: brightness(1.1);
+    filter: brightness(1.1);
 }
 
 .title{

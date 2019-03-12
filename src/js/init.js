@@ -2,20 +2,19 @@
 
 var chart = echarts.init(document.getElementById('chart-area'));
 var option1,option2,option3;
-
-$(function () {
-    (function ($) {
-        $.getUrlParam = function (name) {
-            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-            var r = window.location.search.substr(1).match(reg);
-            if (r != null) return unescape(r[2]); return null;
-        }
-    })(jQuery);
-    var index = $.getUrlParam('index');
-    console.log(index);
-});
-index = '地区生产总值';
-area = '北京市';
+var index = '地区生产总值';
+var area = '北京市';
+// $(function () {
+//     (function ($) {
+//         $.getUrlParam = function (name) {
+//             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+//             var r = window.location.search.substr(1).match(reg);
+//             if (r != null) return unescape(r[2]); return null;
+//         }
+//     })(jQuery);
+//     index = $.getUrlParam('index');
+//     area = $.getUrlParam('area');
+// });
 getData(index, area);
 function getData(index, area){
     var urlName;
