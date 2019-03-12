@@ -19,14 +19,19 @@
   },
   "homepage": "https://github.com/hxj123/bigdataWeb#readme",
   "devDependencies": {
+    "array-uniq": "^2.0.0",
+    "clean-webpack-plugin": "^2.0.0",
     "css-loader": "^2.1.1",
+    "file-loader": "^3.0.1",
+    "has-symbols": "^1.0.0",
+    "icss-utils": "^4.1.0",
     "mini-css-extract-plugin": "^0.5.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^2.9.7"
+    "webpack-cli": "^3.2.3"
   },
   "dependencies": {
+    "echarts": "^4.1.0",
     "lodash": "^4.17.11"
   }
 }

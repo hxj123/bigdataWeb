@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+    <script src="./src/js/jquery-3.3.1.min.js"></script>
+    <script src="./src/js/echarts.js"></script>
+</head>
+
+<body>
+    <div class="title">
+        <h1>城市数据分析系统</h1>
+    </div>
+    <div class="data">
+        <div class="data-left">
+            <div id="chart-select">
+                <img type='0' class="active" src="./src/img/chart1.png" alt="">
+                <img type='1' src="./src/img/chart2.png" alt="">
+                <img type='2' src="./src/img/chart3.png" alt="">
+            </div>
+            <div id="chart-area"></div>
+        </div>
+        <div class="data-right">
+            <div class="data-right-top">
+                <div class="select-box">
+                    <label>级别：</label>
+                    <ul id="area-select">
+                        <li class="active" data-value="1">省份</li>
+                        <li data-value="2">城市</li>
+                    </ul>
+                </div>
+                <div class="data-select select1">
+                    <label>指标：</label>
+                    <div class="select" tabindex="0">
+                        <div class="select-div">地区生产总值</div>
+                        <ul class="select-ul province">
+                            <li class="active" data-value="1">地区生产总值</li>
+                            <li data-value="2">在岗职工平均工资</li>
+                            <li data-value="3">商品房平均销售价格</li>
+                            <li data-value="4">医院数量</li>
+                            <li data-value="5">城市绿地面积</li>
+                            <li data-value="6">零售业销售总额</li>
+                            <li data-value="7">居民人均可支配收入</li>
+                            <li data-value="8">社会福利企业机构数</li>
+                            <li data-value="9">居民消费水平</li>
+                            <li data-value="10">省GDP增长率</li>
+                        </ul>
+                        <ul class="select-ul city">
+                            <li class="active" data-value="1">市GDP增长率</li>
+                            <li data-value="2">市购房压力</li>
+                            <li data-value="3">市医疗覆盖率</li>
+                            <li data-value="4">医院、卫生院数</li>
+                            <li data-value="5">国内生产总值</li>
+                            <li data-value="6">商品房平均销售价格</li>
+                            <li data-value="7">总人口</li>
+                            <li data-value="8">国内生产总值</li>
+                            <li data-value="9">社会商品零售总额</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="data-select select2">
+                    <label>地区：</label>
+                    <div class="select" tabindex="0">
+                        <div class="select-div">北京市</div>
+                        <ul class="select-ul province">
+                            <li class="active" data-value="1">北京市</li>
+                            <li data-value="2">天津市</li>
+                            <li data-value="3">河北省</li>
+                            <li data-value="4">山西省</li>
+                            <li data-value="5">内蒙古自治区</li>
+                            <li data-value="6">辽宁省</li>
+                            <li data-value="7">吉林省</li>
+                            <li data-value="8">黑龙江省</li>
+                            <li data-value="9">上海市</li>
+                            <li data-value="10">江苏省</li>
+                            <li data-value="11">浙江省</li>
+                            <li data-value="12">安徽省</li>
+                            <li data-value="13">福建省</li>
+                            <li data-value="14">江西省</li>
+                            <li data-value="15">山东省</li>
+                            <li data-value="16">河南省</li>
+                            <li data-value="17">湖北省</li>
+                            <li data-value="18">湖南省</li>
+                            <li data-value="19">广东省</li>
+                            <li data-value="20">广西壮族自治区</li>
+                            <li data-value="21">海南省</li>
+                            <li data-value="22">重庆市</li>
+                            <li data-value="23">四川省</li>
+                            <li data-value="24">贵州省</li>
+                            <li data-value="25">云南省</li>
+                            <li data-value="26">西藏自治区</li>
+                            <li data-value="27">陕西省</li>
+                            <li data-value="28">甘肃省</li>
+                            <li data-value="29">青海省</li>
+                            <li data-value="30">宁夏回族自治区</li>
+                            <li data-value="31">新疆维吾尔自治区</li>
+                        </ul>
+                        <ul class="select-ul city">
+                            <li class='active' data-value="1">北京</li>
+                            <li data-value="2">天津</li>
+                            <li data-value="3">石家庄</li>
+                            <li data-value="4">太原</li>
+                            <li data-value="5">呼和浩特</li>
+                            <li data-value="6">沈阳</li>
+                            <li data-value="7">大连</li>
+                            <li data-value="8">长春</li>
+                            <li data-value="9">哈尔滨</li>
+                            <li data-value="10">上海</li>
+                            <li data-value="11">南京</li>
+                            <li data-value="12">杭州</li>
+                            <li data-value="13">宁波</li>
+                            <li data-value="14">合肥</li>
+                            <li data-value="15">福州</li>
+                            <li data-value="16">厦门</li>
+                            <li data-value="17">南昌</li>
+                            <li data-value="18">济南</li>
+                            <li data-value="19">青岛</li>
+                            <li data-value="20">郑州</li>
+                            <li data-value="21">武汉</li>
+                            <li data-value="22">长沙</li>
+                            <li data-value="23">广州</li>
+                            <li data-value="24">深圳</li>
+                            <li data-value="25">南宁</li>
+                            <li data-value="26">海口</li>
+                            <li data-value="27">重庆</li>
+                            <li data-value="28">成都</li>
+                            <li data-value="29">贵阳</li>
+                            <li data-value="30">昆明</li>
+                            <li data-value="31">拉萨</li>
+                            <li data-value="32">西安</li>
+                            <li data-value="33">兰州</li>
+                            <li data-value="34">西宁</li>
+                            <li data-value="35">银川</li>
+                            <li data-value="36">乌鲁木齐</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="data-right-bottom">
+                <h4 class="index-name">地区生产总值(亿元)</h4>
+                <p class="index-introduction">
+                    国内生产总值(GDP)指按市场价格计算的一
+                    个国家（或地区）所有常住单位在一定时
+                    期内生产活动的最终成果。国内生产总值
+                    和支出法。三种方法分别从不同的方面反
+                    和支出法。三种方法分别从不同的方面反
+                    和支出法。三种方法分别从不同的方面反
+                    映国内生产总值及其构成。按当年价格计
+                    算。对于一个地区来说，称为地区生产总
+                    值或地区hello。</p>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- <script type="text/javascript" src="./dist/chart.js"></script>
+<script type="text/javascript" src="./dist/index.js"></script> -->
+<script src="./src/js/dict.js"></script>
+<script src="./src/js/init.js"></script>
+<script src="./src/js/select.js"></script>
+<script>
+    $('#chart-select').on('click', 'img', function(){
+        $(this).addClass('active').siblings('img').removeClass('active');
+        chartIndex = parseInt($(this).attr('type'));
+        setOption();
+    })
+</script>
+
+</html>
