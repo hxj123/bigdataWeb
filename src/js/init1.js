@@ -4,18 +4,7 @@ var chart = echarts.init(document.getElementById('chart-area'));
 var option1,option2,option3;
 var index = '地区生产总值';
 var area = '北京市';
-// $(function () {
-//     (function ($) {
-//         $.getUrlParam = function (name) {
-//             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-//             var r = window.location.search.substr(1).match(reg);
-//             if (r != null) return unescape(r[2]); return null;
-//         }
-//     })(jQuery);
-//     index = $.getUrlParam('index');
-//     area = $.getUrlParam('area');
-// });
-getData(index, area);
+getData(index, area)
 function getData(index, area){
     var urlName;
     if(areaIndex == 0){
@@ -194,7 +183,17 @@ function generateOption(key,value,unit,area,index){
                 name: index,
                 type:'bar',
                 barWidth: '60%',
-                data: value
+                data: value,
+                itemStyle:{
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: '#99d9ea'
+                    }, {
+                        offset: 1,
+                        color: '#3fa7dc'
+                    }]),
+                    shadowColor: 'rgba(0, 0, 0, 0.4)',
+                }
             }
         ]
     };
@@ -247,7 +246,17 @@ function generateOption(key,value,unit,area,index){
                 name: index,
                 type:'bar',
                 barWidth: '60%',
-                data: value
+                data: value,
+                itemStyle:{
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: '#99d9ea'
+                    }, {
+                        offset: 1,
+                        color: '#3fa7dc'
+                    }]),
+                    shadowColor: 'rgba(0, 0, 0, 0.4)',
+                }
             }
         ]
     };

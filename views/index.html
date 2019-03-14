@@ -4,25 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" href="./src/css/style.css">
-    <script src="./src/js/jquery-3.3.1.min.js"></script>
-    <script src="./src/js/echarts.js"></script>
+    <link rel="stylesheet" href="../src/css/style.css">
+    <script src="../src/js/jquery-3.3.1.min.js"></script>
+    <script src="../src/js/echarts.js"></script>
 </head>
 
 <body>
-    <a id="back" href="javascript:history.back(-1)">返回&nbsp;<img src="./src/img/back.png"></a>
+    <!-- <a id="back" href="javascript:history.back(-1)">返回&nbsp;<img src="./src/img/back.png"></a> -->
     <div class="title">
         <h1>城市数据分析系统</h1>
+        <ul id="nav">
+            <li class="nav-item"><a href="#">信息总览</a></li>
+            <li class="nav-item"><a href="./index.html">省市指标</a></li>
+            <li class="nav-item"><a href="./province.html">详细特征</a></li>
+        </ul>
     </div>
-    <div class="data">
-        <div class="data-left">
-            <div id="chart-select">
-                <img type='0' class="active" src="./src/img/chart1.png" alt="">
-                <img type='1' src="./src/img/chart2.png" alt="">
-                <img type='2' src="./src/img/chart3.png" alt="">
-            </div>
-            <div id="chart-area"></div>
-        </div>
+    <div id="data">
         <div class="data-right">
             <div class="data-right-top">
                 <div class="select-box">
@@ -47,6 +44,11 @@
                             <li data-value="8">社会福利企业机构数</li>
                             <li data-value="9">居民消费水平</li>
                             <li data-value="10">省GDP增长率</li>
+                            <li data-value="11">城镇人口</li>
+                            <li data-value="12">乡村人口</li>
+                            <li data-value="12">第一产业增加值</li>
+                            <li data-value="13">第二产业增加值</li>
+                            <li data-value="14">第三产业增加值</li>
                         </ul>
                         <ul class="select-ul city">
                             <li class="active" data-value="1">市GDP增长率</li>
@@ -153,13 +155,21 @@
                     值或地区hello。</p>
             </div>
         </div>
+        <div class="data-left">
+                <div id="chart-select">
+                    <img type='0' class="active" src="../src/img/chart1.png" alt="">
+                    <img type='1' src="../src/img/chart2.png" alt="">
+                    <img type='2' src="../src/img/chart3.png" alt="">
+                </div>
+                <div id="chart-area"></div>
+            </div>
     </div>
 </body>
-<!-- <script type="text/javascript" src="./dist/chart.js"></script>
-<script type="text/javascript" src="./dist/index.js"></script> -->
-<script src="./src/js/dict.js"></script>
-<script src="./src/js/init.js"></script>
-<script src="./src/js/select.js"></script>
+<!-- <script type="text/javascript" src="./dist/chart.js"></script> -->
+<!-- <script src="./src/js/scroll.js"></script> -->
+<script src="../src/js/dict.js"></script>
+<script src="../src/js/init1.js" charset="UTF-8"></script>
+<script src="../src/js/select1.js"></script>
 <script>
     $('#chart-select').on('click', 'img', function(){
         $(this).addClass('active').siblings('img').removeClass('active');

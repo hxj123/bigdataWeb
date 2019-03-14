@@ -8,13 +8,13 @@ html, body{
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;
-    /* overflow: hidden; */
 }
 
 body,h1,h2,h3,h4,h5,h6,p,ol,ul{
     margin: 0;
     padding: 0;
 }
+
 ol,ul,li{
     margin: 0;
     padding: 0;
@@ -39,7 +39,6 @@ body{
     background-position-y:8px; 
     text-align: center;
     padding-top: 5px;
-    /* position: fixed; */
 }
 
 h1 {
@@ -77,92 +76,131 @@ h1 {
 
 #data{
     display: flex;
-    flex-direction: row;
-    padding: 10px;
+    flex-direction: column;
+    padding: 20px;
+    /* margin-top: 20px; */
+    box-sizing: border-box;
+}
+
+#data-top{
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
     margin-top: 20px;
 }
 
-.data-left{
-    margin: 10px;
-    flex-grow: 6;
-    background: url(../img/border3.png);
-    background-size: 100% 100%;
-    box-sizing: border-box;
-    padding: 30px;
-    position: relative;
-}
-
-#chart-select{
-    display: flex;
-    justify-content: right;
-    position: absolute;
-    top:20px;
-    right: 80px;
-    z-index: 90;
-}
-
-#chart-select img{
-    height: 27px;
-    width: 27px;
-    margin-left: 10px;
-    cursor: pointer;
-    border-radius: 2px;
-}
-
-#chart-select img:hover{
-    background: rgba(160, 219, 255, 0.281);
-}
-
-#chart-select img.active{
-    background: rgba(160, 219, 255, 0.281);
-}
-
-#chart-area{
-    width: 100%;
-    height: 100%;
-}
-
-.data-right{
-    margin: 10px;
+#data-top-left, #data-top-right{
+    /* max-width: 400px; */
+    margin: 0 40px;
     flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    max-width: 440px;
-}
-
-.data-right-top, .data-right-bottom{
-    margin: 0 20px;
-    flex-grow: 1;
-    height: 290px;
+    width: 420px;
+    height: 270px;
     background: url(../img/border2.png);
     background-size: 100% 100%;
     box-sizing: border-box;
+    padding: 20px;
 }
 
-.data-right-top{
-    padding: 70px 60px;
+#data-top-left{
+    padding: 60px 80px;
 }
 
-.data-right-bottom{
-    margin-top: 25px;
+.city{
+    display: none;
+}
+
+#data-top-center{
+    flex-grow: 1;
+    margin: 0 40px;
+    width: 420px;
+    height: 270px;
+    position: relative;
+    padding: 10px;
+}
+
+#data-bottom{
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    color:white;
-    padding: 36px 50px;
+    flex-grow: 1;
+    margin-top: 40px;
 }
 
-.data-right-bottom h4{
-    margin-bottom: 8px;
-    color: #afceff;
+#data-bottom-left, #data-bottom-center, #data-bottom-right{
+    margin: 0px 40px;
+    flex-grow: 1;
+    height: 270px;
+    width: 420px;
+    background: url(../img/border2.png);
+    background-size: 100% 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
 }
 
-.data-right-bottom p{
-    font-size: 15px;
-    color: #b7d0f8;
-    text-indent:30px;
-    word-wrap: break-word;
+.icondiv{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    color: white;
+    font-size: 26px;
+    text-shadow:5px 5px 30px #DBDBDB;
+    z-index: 10;
+}
+
+.icon{
+    height: 70px;
+    width: 70px;
+    animation: rotate 6s infinite linear;
+    transition: all .6s;
+    position: absolute;
+    left: 53px;
+    top: 4px;
+    z-index: 30;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.iconword1{
+    position: absolute;
+    top: 3px;
+    right: 202px;
+}
+
+.iconword2{
+    position: absolute;
+    top: 36px;
+    left: 245px;
+}
+
+.title1{
+    height: 18px;
+    width: 280px;
+    position: absolute;
+    right: 65px;
+}
+
+.title2{
+    height: 18px;
+    width: 280px;
+    position: absolute;
+    top:55px;
+    left: 115px;
+}
+
+#build{
+    width: 100%;
+    height: 100%;
 }
 
 /** 滚动条 **/
@@ -263,7 +301,11 @@ label{
 }
 
 .select1 .select-div, .select1 .select,.select1 .select-ul,.select1 .select-ul>li{
-    width: 200px;
+    width: 180px;
+}
+
+.select2 .select-div, .select2 .select,.select2 .select-ul,.select2 .select-ul>li{
+    width: 140px;
 }
 
 .select1{
@@ -304,8 +346,4 @@ label{
 
 .city{
     display:none;
-}
-
-#data2{
-    height: 100%;
 }
