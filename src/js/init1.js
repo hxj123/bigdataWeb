@@ -2,9 +2,23 @@
 
 var chart = echarts.init(document.getElementById('chart-area'));
 var option1,option2,option3;
-var index = '地区生产总值';
-var area = '北京市';
-getData(index, area)
+
+$(function () {
+    var href = decodeURI(location.href);
+    if(href.indexOf('area')!=-1){
+        temp = href.split('?')[1].split('&');
+        var res = {}
+        for(i = 0;i < temp.length;i++){
+            res[temp[i].split('=')[0]] = temp[i].split('=')[1]
+        }
+        getData(res['index'], res['area'])
+        $('.select1 .select-div').text(res['index'])
+        $('.select2 .select-div').text(res['area'])
+    }else{
+        getData('地区生产总值', '北京市');
+    }
+});
+
 function getData(index, area){
     var urlName;
     if(areaIndex == 0){
@@ -51,7 +65,9 @@ function generateOption(key,value,unit,area,index){
             text: area+index,
             textStyle: {
                 color: '#fff'
-            }
+            },
+            top:'5%',
+            left:'10%'
         },
         color:['#ffffff'],
         tooltip : {
@@ -67,12 +83,13 @@ function generateOption(key,value,unit,area,index){
             data:[index],
             textStyle: {
                 color: '#fff'
-            }
+            },
+            top: '5%'
         },
         grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
+            left: '10%',
+            right: '10%',
+            top: '20%',
             containLabel: true
         },
         xAxis : [
@@ -140,13 +157,22 @@ function generateOption(key,value,unit,area,index){
             trigger: 'axis',
             axisPointer : {            // 坐标轴指示器，坐标轴触发有效
                 type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-            }
+            },
+            top:'5%',
+            left:'10%'
         },
         grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
+            left: '10%',
+            right: '10%',
+            top: '20%',
             containLabel: true
+        },
+        legend: {
+            data:[index],
+            textStyle: {
+                color: '#fff'
+            },
+            top: '5%'
         },
         xAxis : [
             {
@@ -203,12 +229,14 @@ function generateOption(key,value,unit,area,index){
             trigger: 'axis',
             axisPointer : {            // 坐标轴指示器，坐标轴触发有效
                 type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-            }
+            },
+            top:'5%',
+            left:'10%'
         },
         grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
+            left: '10%',
+            right: '10%',
+            top: '20%',
             containLabel: true
         },
         xAxis : [
@@ -248,7 +276,7 @@ function generateOption(key,value,unit,area,index){
                 barWidth: '60%',
                 data: value,
                 itemStyle:{
-                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                    color: new echarts.graphic.LinearGradient(1, 0, 0, 0, [{
                         offset: 0,
                         color: '#99d9ea'
                     }, {
