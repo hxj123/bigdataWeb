@@ -77,7 +77,7 @@ var mapOption = {
                     borderColor: '#1874CD',
                 },
                 emphasis: {
-                    areaColor: 'rgb(108, 190, 251)',
+                    areaColor: 'rgb(120, 225, 251)',
                     borderColor: 'rgb(111, 146, 238)'
                 }
             }
