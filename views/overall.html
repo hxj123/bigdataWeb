@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <title>信息总览</title>
+    <meta charset="utf-8">
+    <script src="../src/js/echarts.js"></script>
+    <script src="../src/js/walden.js"></script>
+    <script src="../src/js/china.js"></script>
+    <script src="../src/js/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="../src/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../src/css/overall.css" />
+</head>
+
+<body>
+    <div class="title">
+        <h1>城市数据分析系统</h1>
+        <ul id="nav-header">
+            <li class="nav-item"><a href="./overall.html" class="active">信息总览</a></li>
+            <li class="nav-item"><a href="./index.html">省市指标</a></li>
+            <li class="nav-item"><a href="./province.html">详细特征</a></li>
+        </ul>
+    </div>
+
+    <div id="container" style="display:inline-block" class="low-priority">
+        <div id="canvas">
+            <div id="nav">
+            </div>
+            <div class="list_show">
+                <ul id="ulBox" class="list"></ul>
+            </div>
+            <div class="bar-div">
+                <a href="#" class="toggle-nav" id="bars">
+                </a>
+                <div class="bar_word">省<br>份<br>数<br>据</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="container1" style="display:inline-block" class="low-priority">
+        <div id="canvas1">
+            <div id="nav1">
+            </div>
+            <div class="list_show1">
+                <ul id="ulBox1" class="list1"></ul>
+            </div>
+            <div class="bar-div1">
+                <a href="#" class="toggle-nav1" id="bars1">
+                </a>
+                <div class="bar1_word">城<br>市<br>数<br>据</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="wrapper">
+        <div class=" fill-h">
+            <div class="chart-container col-lg-7 mid-priority" style="margin-left: 3%">
+                <div id="map" class="chart fill-h"></div>
+            </div>
+            <div class="chart-container col-lg-4 mid-priority">
+                <div id="table" class="chart fill-h"></div>
+            </div>
+        </div>
+        <!-- <div id="timeline"></div> -->
+    </div>
+    <script src="../src/js/api.js"></script>
+    <script src="../src/js/main-panel.js"></script>
+    <script src="../src/js/overall.js"></script>
+</body>
+
+</html>

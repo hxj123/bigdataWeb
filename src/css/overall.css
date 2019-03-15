@@ -1,0 +1,436 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 635px;
+    font-family: "microsoft yahei", arial, sans-serif;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    overflow: hidden;   
+}
+
+body,h1,h2,h3,h4,h5,h6,p,ol,ul{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    position: relative;
+    background: url(../img/bg.jpg) fixed;
+}
+
+ol,ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.title{
+    width: 100%;
+    height: 60px;
+    background: url(../img/header.png) no-repeat;
+    background-size: 100% 100%;
+    background-position-y: 8px; 
+    text-align: center;
+    padding-top: 5px;
+    /* position: relative; */
+}
+
+h1 {
+    position: relative;
+    font-size: 22px;
+    color: rgb(127, 204, 255);
+    padding-top:8px;
+    font-weight: bold
+}
+
+#nav-header{
+    position: absolute;
+    font-size: 18px;
+    top: 48px;
+    right: 90px;
+}
+
+#nav-header li a{
+    display: inline-block;
+    width: 100px;
+    height: 34px;
+    line-height: 34px;
+    margin-right: 20px;
+    border-radius: 4px;
+    cursor:pointer;
+    color: rgb(128, 203, 253);
+}
+
+#nav-header li{
+    float: left;
+}
+
+#nav-header li a:hover, #nav-header li a.active{
+    color: rgb(252, 252, 252);
+    background: rgb(56, 150, 209);
+    text-decoration: none;
+}
+
+.header h2 {
+	margin: 0;
+    padding: 0;
+    line-height: 50px;
+    text-align: center;
+    font-size: 24px;
+    color: #5dc2fe;
+}
+
+.container-fluid {
+	padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+	margin-left: auto;
+	box-sizing: border-box;
+}
+
+.wrapper {
+	position: absolute;
+	top: 95px;
+	bottom: 20px;
+	left: 0;
+	right: 0;
+}
+
+.chart-container {
+	padding: 15px;
+	margin: 15px;
+	margin-top: 0;
+	background: url("../img/border3.png") center no-repeat;
+	background-size: 100% 100%;
+	box-sizing: border-box;
+	height: 100%;
+}
+
+
+.fill-h {
+	height: 100%;
+	min-height: 100%;
+}
+
+.chart {
+	-webkit-tap-highlight-color: transparent;
+    user-select: none;
+	background: transparent;
+}
+
+#container {
+    width: 40vw;
+    height: 60vh;
+    position: absolute;
+    overflow: hidden;
+	top: 25vh;
+	left: 0;
+}
+
+#canvas {
+    position: relative;
+
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+
+    -webkit-transition: .5s ease all;
+    -moz-transition: .5s ease all;
+    -o-transition: .5s ease all;
+    transition: .5s ease all;
+
+
+
+}
+
+#nav {
+    background: linear-gradient(to bottom, #2690cf, midnightblue);
+    opacity:0.6;
+    border-radius: 10px;
+    box-shadow: 0px 0px 40px #4788fb;
+    position: absolute;
+    left: -20vw;
+    top: 0;
+
+    -webkit-transition: .5s ease all;
+    -moz-transition: .5s ease all;
+    -o-transition: .5s ease all;
+    transition: .5s ease all;
+
+    /* By default, rotate the menu 90deg inwards */
+    -webkit-transform: rotateY(-90deg);
+    -moz-transform: rotateY(-90deg);
+    -ms-transform: rotateY(-90deg);
+    -o-transform: rotateY(-90deg);
+    transform: rotateY(-90deg);
+}
+
+#container.display-nav #canvas {
+    -webkit-transform: translateX(20vw);
+    -moz-transform: translateX(20vw);
+    -ms-transform: translateX(20vw);
+    -o-transform: translateX(20vw);
+    transform: translateX(20vw);
+}
+
+/* transition the menu with perspective on "show-nav" */
+#container.display-nav #nav {
+    width: 20vw;
+    height: 58vh;
+    -webkit-transform-origin: 100% 50%;
+    -moz-transform-origin: 100% 50%;
+    -ms-transform-origin: 100% 50%;
+    -o-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+
+    -webkit-transform: perspective(600px) rotateY(0deg);
+    -moz-transform: perspective(600px) rotateY(0deg);
+    -ms-transform: perspective(600px) rotateY(0deg);
+    -o-transform: perspective(600px) rotateY(0deg);
+    transform: perspective(600px) rotateY(0deg);
+
+}
+
+@font-face {
+    font-family: zx;
+    src: url("../fonts/yin.ttf")
+}
+
+.list{
+    font-size: 18px;
+    color: white;
+}
+
+.list_show{
+    color: white;
+    position: absolute;
+    width: 20vw;
+    height: 58vh;
+    display: flex;
+    align-items: center;
+    align-content: space-around;
+    left: -20vw;
+    text-shadow: 0 0 5px white;
+    font-family: zx;
+}
+
+.list_show ul{
+    height: 95%;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: space-around;*/
+    justify-content: space-between;
+    list-style: none;
+    cursor: pointer;
+}
+
+.list1{
+    font-size: 20px;
+    color: white;
+}
+
+.list_show1{
+    color: white;
+    position: absolute;
+    width: 20vw;
+    height: 58vh;
+    display: flex;
+    align-items: center;
+    align-content: space-around;
+    left: 40vw;
+    text-shadow: 0 0 5px white;
+    font-family: zx;
+
+}
+
+.list_show1 ul{
+    height: 95%;
+    margin-left: 60px;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: space-around;*/
+    justify-content: space-between;
+    list-style: none;
+    cursor: pointer;
+}
+
+.bar-div{
+    display: flex;
+    height: 60vh;
+    width: 20vw;
+    align-items: center;
+
+}
+
+#bars {
+    -webkit-filter: blur(20px);
+    -moz-filter: blur(20px);
+    -o-filter: blur(20px);
+    -ms-filter: blur(20px);
+    filter:blur(20px);
+    border-color: transparent transparent #00bbec;
+    border-style: none solid solid;
+    border-width: 0 45px 45px;
+    display: block;
+    height: 8vw;
+    width: 16vw;
+    -moz-transform:rotate(90deg);/*FF浏览器*/
+    -webkit-transform:rotate(90deg);/*chrome浏览器*/
+    -o-transform:rotate(90deg);/*oprea浏览器*/
+    -ms-transform:rotate(90deg);/*IE浏览器*/
+    position: relative;
+    left: -4vw
+    /*height: 10vw;*/
+    /*width: 6vw;*/
+/*background:linear-gradient(to bottom, #2690cf, midnightblue);*/
+/*transform:perspective(0.5em) rotateY(5deg);*/
+}
+
+.bar_word{
+    font-weight:bold;
+    font-size: 32px;
+    position: relative;
+    left: -15.5vw;
+    color: white;
+    text-shadow: 0px 0px 20px white;
+    cursor: pointer;
+}
+
+#bars:hover {
+    color: #48b978
+}
+
+#container1 {
+    float: right;
+    width: 40vw;
+    height: 60vh;
+    position: absolute;
+    overflow: hidden;
+	top: 25vh;
+	right: 0;
+}
+
+
+#canvas1 {
+    position: relative;
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+    -webkit-transition: .5s ease all;
+    -moz-transition: .5s ease all;
+    -o-transition: .5s ease all;
+    transition: .5s ease all;
+}
+
+#nav1 {
+    background: linear-gradient(to bottom, #2690cf, midnightblue);
+    opacity:0.6;
+    border-radius: 10px;
+    box-shadow: 0px 0px 40px #4788fb;
+    position: absolute;
+    left: 40vw;
+    top: 0;
+
+    -webkit-transition: .5s ease all;
+    -moz-transition: .5s ease all;
+    -o-transition: .5s ease all;
+    transition: .5s ease all;
+
+    /* By default, rotate the menu 90deg inwards */
+    -webkit-transform: rotateY(-90deg);
+    -moz-transform: rotateY(-90deg);
+    -ms-transform: rotateY(-90deg);
+    -o-transform: rotateY(-90deg);
+    transform: rotateY(-90deg);
+}
+
+#container1.display-nav1 #canvas1 {
+    -webkit-transform: translateX(-20vw);
+    -moz-transform: translateX(-20vw);
+    -ms-transform: translateX(-20vw);
+    -o-transform: translateX(-20vw);
+    transform: translateX(-20vw);
+}
+
+/* transition the menu with perspective on "show-nav" */
+#container1.display-nav1 #nav1 {
+    width: 20vw;
+    height: 58vh;
+    -webkit-transform-origin: 100% 50%;
+    -moz-transform-origin: 100% 50%;
+    -ms-transform-origin: 100% 50%;
+    -o-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+
+    -webkit-transform: perspective(600px) rotateY(0deg);
+    -moz-transform: perspective(600px) rotateY(0deg);
+    -ms-transform: perspective(600px) rotateY(0deg);
+    -o-transform: perspective(600px) rotateY(0deg);
+    transform: perspective(600px) rotateY(0deg);
+
+}
+
+.bar-div1{
+    display: flex;
+    height: 60vh;
+    width: 20vw;
+    align-items: center;
+
+}
+
+#bars1 {
+    -webkit-filter: blur(20px);
+    -moz-filter: blur(20px);
+    -o-filter: blur(20px);
+    -ms-filter: blur(20px);
+    filter:blur(20px);
+    border-color: transparent transparent #00bbec;
+    border-style: none solid solid;
+    border-width: 0 45px 45px;
+    display: block;
+    height: 8vw;
+    width: 16vw;
+    -moz-transform:rotate(-90deg);/*FF浏览器*/
+    -webkit-transform:rotate(-90deg);/*chrome浏览器*/
+    -o-transform:rotate(-90deg);/*oprea浏览器*/
+    -ms-transform:rotate(-90deg);/*IE浏览器*/
+    position: relative;
+    left: 28vw
+}
+
+.bar1_word{
+    font-weight:bold;
+    font-size: 32px;
+    position: relative;
+    left: 21.5vw;
+    color: white;
+    text-shadow: 0px 0px 20px white;
+    cursor: pointer;
+}
+
+
+#bars1:hover {
+    color: #48b978
+}
+
+.high-priority {
+	z-index: 10;
+}
+
+.mid-priority {
+	z-index: 5;
+}
+
+.low-priority {
+	z-index: 1;
+}

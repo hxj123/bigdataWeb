@@ -204,7 +204,7 @@ function setChart2Option(data1, data2){
         },
         series : [
             {
-                name: '访问来源',
+                name: 'GDP占比',
                 type: 'pie',
                 radius : '55%',
                 center: ['50%', '60%'],
