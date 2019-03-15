@@ -1,4 +1,4 @@
-var minData = 0;
+﻿var minData = 0;
 var maxData = 0
 var range = 0;
 var normalizedRange = 0;
@@ -17,8 +17,8 @@ function valueFormat(regionObj, isProvinceFeature) {
         if (isProvinceFeature)
             region = regionMap[region];
         for (let year in yearObj) {
-            if(year == '2018')
-                break;
+            if(year == '2018' || year == '1999' || year == '2000')
+                continue;
             if (res[year] === undefined) {
                 res[year] = new Array();
             }
@@ -184,7 +184,6 @@ function generateCityMap(cityData, title) {
             },
         }
     };
-    mapOption.options[0].timeline.currentIndex = -1;
     for (let i = 1; i < timeline.length; i++) {
         mapOption.options.push({
             series: {
@@ -192,6 +191,7 @@ function generateCityMap(cityData, title) {
             }
         });
     }
+    // mapOption.options[0].timeline.currentIndex = -1;
     mapChart.setOption(mapOption, true);
 }
 
@@ -240,7 +240,6 @@ function generateProvinceMap(provinceData, title) {
             }
         }
     };
-    mapOption.options[0].timeline.currentIndex = -1;
     for (let i = 1; i < timeline.length; i++) {
         mapOption.options.push({
             series: {
@@ -248,7 +247,7 @@ function generateProvinceMap(provinceData, title) {
             }
         });
     }
-    // console.log(mapOption);
+    // mapOption.options[0].timeline.currentIndex = -1;
     mapChart.setOption(mapOption, true);
 }
 
@@ -273,7 +272,6 @@ function generateRank(rankData, title) {
             data: rankData[timeline[0]]
         }
     };
-    rankOption.options[0].timeline.currentIndex = -1;
     for (let i = 1; i < timeline.length; i++) {
         rankOption.options.push({
             yAxis: {
@@ -284,6 +282,7 @@ function generateRank(rankData, title) {
             }
         });
     }
+    // rankOption.options[0].timeline.currentIndex = -1;
     rankChart.setOption(rankOption, true);
     rankChart.resize();
 }
