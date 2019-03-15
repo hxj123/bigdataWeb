@@ -70,7 +70,7 @@ h1 {
     float: left;
 }
 
-#nav li a:hover{
+#nav li a:hover, #nav li a.active{
     color: rgb(252, 252, 252);
     background: rgb(56, 150, 209)
 }
