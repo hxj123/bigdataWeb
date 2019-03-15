@@ -262,6 +262,8 @@ function generateRank(rankData, title) {
         },
         title: {
             text: `${title}排行榜`,
+            left: 40,
+            top: 15
         },
         yAxis: {
             type: 'category',
