@@ -223,7 +223,7 @@ h1 {
 
 .list_show ul{
     height: 95%;
-    margin-left: 10px;
+    margin-left: 30px;
     display: flex;
     flex-direction: column;
     /*justify-content: space-around;*/
@@ -248,12 +248,15 @@ h1 {
     left: 40vw;
     text-shadow: 0 0 5px white;
     font-family: zx;
+    padding: 30px 0;
 
 }
 
 .list_show1 ul{
     height: 95%;
     margin-left: 60px;
+    margin-top: 60px;
+    margin-bottom: 60px;
     display: flex;
     flex-direction: column;
     /*justify-content: space-around;*/
