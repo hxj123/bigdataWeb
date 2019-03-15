@@ -184,7 +184,7 @@ function generateCityMap(cityData, title) {
             },
         }
     };
-    mapOption.options[0].timeline.currentIndex = -3;
+    mapOption.options[0].timeline.currentIndex = -1;
     for (let i = 1; i < timeline.length; i++) {
         mapOption.options.push({
             series: {
@@ -240,6 +240,7 @@ function generateProvinceMap(provinceData, title) {
             }
         }
     };
+    mapOption.options[0].timeline.currentIndex = -1;
     for (let i = 1; i < timeline.length; i++) {
         mapOption.options.push({
             series: {
@@ -272,6 +273,7 @@ function generateRank(rankData, title) {
             data: rankData[timeline[0]]
         }
     };
+    rankOption.options[0].timeline.currentIndex = -1;
     for (let i = 1; i < timeline.length; i++) {
         rankOption.options.push({
             yAxis: {
