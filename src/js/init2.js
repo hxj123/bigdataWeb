@@ -24,7 +24,15 @@ function getProvinceData(area, year){
                 data2.push(k);
                 value2.push(t2[k]);
             }
-            setChart3Option(data1, value1);
+
+            var radar = resJson['雷达图'];
+            var datas = new Array();
+            datas.push(radar['住宅商品房平均销售价格'])
+            datas.push(radar['城镇单位在岗职工平均工资'])
+            datas.push(radar['城市绿地面积'])
+            datas.push(radar['地区生产总值'])
+            datas.push(radar['省医疗覆盖率'])
+            setChart3Option(32, [{'value':datas, 'name':'area'}])
             setChart4Option(data2, value2, '消费压力');
         }
     });
@@ -49,7 +57,15 @@ function getCityData(area, year){
                 data2.push(k);
                 value2.push(t2[k]);
             }
-            setChart3Option(data1, value1);
+            
+            var radar = resJson['雷达图'];
+            var datas = new Array();
+            datas.push(radar['商品房平均销售价格'])
+            datas.push(radar['在岗职工平均工资'])
+            datas.push(radar['城市绿地面积'])
+            datas.push(radar['国内生产总值'])
+            datas.push(radar['市医疗覆盖率'])
+            setChart3Option(36, [{'value':datas, 'name':'area'}])
             setChart4Option(data2, value2, '购房压力');
         }
     });

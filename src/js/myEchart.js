@@ -126,8 +126,6 @@ $(function () {
     })();
 });
 
-setChart3Option();
-setChart4Option();
 function setChart1Option(data1,data2,data3){
     option1 = {
         title : {
@@ -225,65 +223,62 @@ function setChart2Option(data1, data2){
     chart2.setOption(option2);
 }
 
-function setChart3Option(years, datas){
+function setChart3Option(max, datas){
     option3 = {
-        title : {
-            text: '医疗覆盖率',
-            x:'center',
+        title: {
+            text: '省市雷达图',
             textStyle:{
                 color:'#fff'
             }
         },
-        grid: {//图的位置
-            top: 40,
-            bottom: 40,
-            left: 50
-        },
-        xAxis: {
-            type: 'category',
-            data: years,
-            axisLine:{
-                lineStyle: {
-                    type: 'solid',
-                    color: '#fff',//左边线的颜色
-                    width:'1'//坐标线的宽度
+        tooltip: {
+            trigger: 'item',
+            formatter: function(params){
+                values = params.data.value;
+                var label = ['住房','工资','养老','经济','医疗'];
+                var res = '';
+                for(var i = 0;i < values.length;i++){
+                    res += label[i] + '排名:' + (max - values[i] + 1) + '<br/>' 
                 }
+                return res;
             },
-            axisLabel: {
-                show: true,
-                textStyle: {
-                    color: '#fff'
-                }
-            }
-        },
-        yAxis: {
-            type: 'value',
-            axisLine:{
-                lineStyle: {
-                    type: 'solid',
-                    color: '#fff',//左边线的颜色
-                    width:'1'//坐标线的宽度
-                }
+            textStyle:{
+                align: 'left'
             },
-            axisLabel: {
-                show: true,
+            padding: 10,
+        },
+        radar: {
+            name: {
                 textStyle: {
-                    color: '#fff'
-                }
-            }
+                    color: '#fff',
+               }
+            },
+            center:['50%','55%'],
+            indicator: [
+               { name: '住房', max: max},
+               { name: '工资', max: max},
+               { name: '养老', max: max},
+               { name: '经济', max: max},
+               { name: '医疗', max: max},
+            ]
         },
         series: [{
-            data: datas,
-            type: 'line',
-            // lineStyle:{
-            //     color: '#b74444'
-            // }
+            name: '省市雷达图',
+            type: 'radar',
+            color:['#33efff'],
+            data : datas
         }]
     };
     chart3.setOption(option3);
 }
 
 function setChart4Option(years, datas, title){
+    var legend = title;
+    if(title == '消费压力'){
+        title += '(可支配收入/商品零售价格)'
+    }else{
+        title += '(平均工资/房价)'
+    }
     option4 = {
         title : {
             text: title,
@@ -348,7 +343,7 @@ function setChart4Option(years, datas, title){
         ],
         series : [
             {
-                name:'直接访问',
+                name: legend,
                 type:'bar',
                 barWidth: '40%',
                 data:datas,
