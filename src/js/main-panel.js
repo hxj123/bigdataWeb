@@ -1,8 +1,11 @@
 ﻿var minData = 0;
 var maxData = 0
 var range = 0;
+var standardDeviation = 0;
+var avg = 0;
 var normalizedRange = 0;
-var sqrtOptimizer = false;
+// var sqrtOptimizer = false;
+var unit = "";
 
 /*
  * Transform the data form like {city: {year: val,...},...}
@@ -11,6 +14,7 @@ var sqrtOptimizer = false;
 function valueFormat(regionObj, isProvinceFeature) {
     let res = {};
     regionObj = JSON.parse(regionObj);
+    unit = regionObj.unit;
     regionObj = regionObj.data;
     for (let region in regionObj) {
         let yearObj = regionObj[region];
@@ -22,7 +26,7 @@ function valueFormat(regionObj, isProvinceFeature) {
             if (res[year] === undefined) {
                 res[year] = new Array();
             }
-            let val = yearObj[year];
+            let val = Number(yearObj[year]).toFixed(2);
             // if (val == 0 || val == -1) {
             //     continue;
             // }
@@ -73,14 +77,25 @@ var mapOption = {
             },
             itemStyle: {
                 normal: {
-                    areaColor: 'rgba(120, 197, 237, 1)',
-                    borderColor: '#1874CD',
+                    areaColor: 'rgba(120, 197, 237, 0.5)',
+                    borderColor: '#00F5FF',
                 },
                 emphasis: {
                     areaColor: 'rgb(120, 225, 251)',
-                    borderColor: 'rgb(111, 146, 238)'
+                    borderColor: '#00F5FF'
                 }
-            }
+            },
+            // original color
+            // itemStyle: {
+            //     normal: {
+            //         areaColor: 'rgba(120, 197, 237, 1)',
+            //         borderColor: '#1874CD',
+            //     },
+            //     emphasis: {
+            //         areaColor: 'rgb(120, 225, 251)',
+            //         borderColor: 'rgb(111, 146, 238)'
+            //     }
+            // }
         },
     }
 };
@@ -118,11 +133,18 @@ rankOption = {
 }
 
 function findMinMax(data) {
+    let sum = 0;
+    let count = 0;
+    let variance = 0;
     minData = Math.pow(2,31) - 1;
     maxData = 0;
+    dataList = new Array();
     for(year in data) {
         for(let i = 0; i < data[year].length; i++) {
             cityVal = Number((data[year])[i].value);
+            dataList.push(cityVal);
+            sum += cityVal;
+            count++;
             if(cityVal < minData)
                 minData = cityVal;
             if(cityVal > maxData)
@@ -131,8 +153,15 @@ function findMinMax(data) {
     }
     range = maxData - minData;
     normalizedRange = (maxData-minData) / range;
-    if(normalizedRange > 0.9)
-        sqrtOptimizer = true;
+    avg = sum / count;
+    for(let i = 0; i < dataList.length; i++) {
+        variance += Math.pow(dataList[i] - avg, 2);
+    }
+    variance = variance / count;
+    standardDeviation = Math.sqrt(variance);
+    // if(normalizedRange > 0.9)
+    //     sqrtOptimizer = true;
+
 }
 
 function generateCityMap(cityData, title) {
@@ -158,7 +187,7 @@ function generateCityMap(cityData, title) {
             data: timeline
         },
         title: {
-            text: title,
+            text: `${title}(${unit})`,
             subtext: '',
             x: 'center'
         },
@@ -171,16 +200,11 @@ function generateCityMap(cityData, title) {
             tooltip: {
                 trigger: 'item',
                 formatter: function (val) {
-                    return val.data.name + '：' + val.value[2];
+                    return val.data.name + '：' + val.value[2] + unit;
                 }
             },
             symbolSize: function (val) {
-                // console.log((val[2]-minData) / range);
-                // let normalizedVal = (val[2]-minData) / range;
-                // if(sqrtOptimizer)
-                //     normalizedVal = Math.sqrt(normalizedRange);
-                // return normalizedVal * 100;
-                return 10
+                return 10 + 5 * (val[2] - avg) / standardDeviation;
             },
         }
     };
@@ -214,7 +238,7 @@ function generateProvinceMap(provinceData, title) {
             },
         },
         title: {
-            text: title,
+            text: `${title}(${unit})`,
             subtext: '',
             x: 'center'
         },
@@ -236,7 +260,7 @@ function generateProvinceMap(provinceData, title) {
             trigger: 'item',
             formatter: function (val) {
                 // console.log(val.value);
-                return val.data.name + '：' + val.value;
+                return val.data.name + '：' + val.value + unit;
             }
         }
     };
@@ -267,7 +291,7 @@ function generateRank(rankData, title) {
         },
         yAxis: {
             type: 'category',
-            data: rankData[timeline[0]].map(nameMap)
+            data: rankData[timeline[0]].map(nameMap),
         },
         series: {
             type: 'bar',
