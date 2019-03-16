@@ -226,7 +226,7 @@ function setChart2Option(data1, data2){
 function setChart3Option(max, datas){
     option3 = {
         title: {
-            text: '省市雷达图',
+            text: '指标导向图',
             textStyle:{
                 color:'#fff'
             }
@@ -235,7 +235,7 @@ function setChart3Option(max, datas){
             trigger: 'item',
             formatter: function(params){
                 values = params.data.value;
-                var label = ['住房','工资','养老','经济','医疗'];
+                var label = ['房价','工资','养老','经济','医疗'];
                 var res = '';
                 for(var i = 0;i < values.length;i++){
                     res += label[i] + '排名:' + (max - values[i] + 1) + '<br/>' 
@@ -255,7 +255,7 @@ function setChart3Option(max, datas){
             },
             center:['50%','55%'],
             indicator: [
-               { name: '住房', max: max},
+               { name: '房价', max: max},
                { name: '工资', max: max},
                { name: '养老', max: max},
                { name: '经济', max: max},
@@ -263,7 +263,7 @@ function setChart3Option(max, datas){
             ]
         },
         series: [{
-            name: '省市雷达图',
+            name: '指标导向图',
             type: 'radar',
             color:['#33efff'],
             data : datas
