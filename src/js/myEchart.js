@@ -266,7 +266,17 @@ function setChart3Option(max, datas){
             name: '指标导向图',
             type: 'radar',
             color:['#33efff'],
-            data : datas
+            data : datas,
+            areaStyle: {},
+                itemStyle: {
+                    normal: {
+                        barBorderColor: '#A0D5F8',
+                        color: '#A0D5F8'
+                    },
+                    emphasis: {
+                        color: '#A0D5F8'
+                    },
+                },
         }]
     };
     chart3.setOption(option3);
