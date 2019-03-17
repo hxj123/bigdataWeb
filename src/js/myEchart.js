@@ -235,7 +235,7 @@ function setChart3Option(max, datas){
             trigger: 'item',
             formatter: function(params){
                 values = params.data.value;
-                var label = ['房价','工资','养老','经济','医疗'];
+                var label = ['房价','工资','植被覆盖率','经济','医疗覆盖率'];
                 var res = '';
                 for(var i = 0;i < values.length;i++){
                     res += label[i] + '排名:' + (max - values[i] + 1) + '<br/>' 
