@@ -110,7 +110,7 @@ rankOption = {
             show: false,
         },
         tooltip: {
-            show: true
+            show: true,
         },
         grid: {
             left: '3%',
@@ -202,9 +202,7 @@ function generateCityMap(cityData, title) {
             data: convertCityData(cityData[timeline[0]]),
             tooltip: {
                 trigger: 'item',
-                formatter: function (val) {
-                    return val.data.name + '：' + val.value[2] + unit;
-                }
+                formatter: val => `${val.data.name}：${val.value[2]}${unit}`
             },
             symbolSize: function (val) {
                 return 10 + 5 * (val[2] - avg) / standardDeviation;
@@ -262,7 +260,7 @@ function generateProvinceMap(provinceData, title) {
         tooltip: {
             trigger: 'item',
             formatter: function (val) {
-                // console.log(val.value);
+                console.log(val.value);
                 return val.data.name + '：' + val.value + unit;
             }
         }
@@ -299,6 +297,9 @@ function generateRank(rankData, title) {
         series: {
             type: 'bar',
             data: rankData[timeline[0]]
+        },
+        tooltip: {
+            formatter: val => (val.data.name + '：' + val.value + unit)
         }
     };
     for (let i = 1; i < timeline.length; i++) {
