@@ -102,20 +102,20 @@ for (var i = 0; i < data.city_data.length; i++) {
     ul1.appendChild(li);
 }
 
-// mapChart.on("click", function (params) {
-//     console.log(params)
-//     if(params.componentType == "geo" && !isProvinceFeature || params.componentSubType == "scatter" && isProvinceFeature)
-//         return;
-//     if(params.componentType == "timeline") {
-//         console.log(params.event);
-//         return;
-//     }
-//     console.log(regionReverseMap[params.name]);
-//     let regionName = regionReverseMap[params.name];
-//     if(typeof(regionName) == "undefined")
-//         regionName = params.name;
-//     window.location.href = `index2.html?area=${regionName}&index=${currentFeature}`;
-// })
+mapChart.on("click", function (params) {
+    console.log(params)
+    if(params.componentType == "geo" && !isProvinceFeature || params.componentSubType == "scatter" && isProvinceFeature)
+        return;
+    if(params.componentType == "timeline") {
+        console.log(params.event);
+        return;
+    }
+    console.log(regionReverseMap[params.name]);
+    let regionName = regionReverseMap[params.name];
+    if(typeof(regionName) == "undefined")
+        regionName = params.name;
+    window.location.href = `index.html?area=${regionName}&index=${currentFeature}`;
+})
 
 function getQueryVariable(variable) {
     var query = decodeURI(window.location.search.substring(1));

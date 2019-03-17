@@ -14,7 +14,10 @@ var unit = "";
 function valueFormat(regionObj, isProvinceFeature) {
     let res = {};
     regionObj = JSON.parse(regionObj);
-    unit = regionObj.unit;
+    if(unit != null)
+        unit = regionObj.unit;
+    else
+        unit = "";
     regionObj = regionObj.data;
     for (let region in regionObj) {
         let yearObj = regionObj[region];
