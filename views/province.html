@@ -3,23 +3,28 @@
 <head>
     <title>详细特征</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="yes" name="apple-touch-fullscreen"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <title>Document</title>
     <link rel="stylesheet" href="../src/css/province.css">
 </head>
 <body>
     <div class="title">
         <h1>省市数据分析系统</h1>
-        <ul id="nav">
-            <li class="nav-item"><a href="./overall.html">信息总览</a></li>
-            <li class="nav-item"><a href="./index.html">省市指标</a></li>
-            <li class="nav-item"><a href="./province.html" class="active">详细特征</a></li>
-        </ul>
+        <div class="menu">
+            <img class="menu-icon" src="../src/img/menu.png"></img>
+            <ul id="nav">
+                <li class="nav-item"><a href="./overall.html">信息总览</a></li>
+                <li class="nav-item"><a href="./index.html">省市指标</a></li>
+                <li class="nav-item"><a href="./province.html" class="active">详细特征</a></li>
+            </ul>
+        </div>
     </div>
     <div id="data">
-        <div id="data-top">
-            <div id="data-top-left">
+        <div id="data-top-left" class="data-item selectMenu">
+            <div>
                 <div class="select-box">
                     <label>级别：</label>
                     <ul id="area-select">
@@ -132,23 +137,21 @@
                     </div>
                 </div>
             </div>
-            <div id="data-top-center">
-                <div class="icondiv">
-                    <img src="../src/img/show.png" class="icon">
-                    <img src="../src/img/title1.png" class="title1">
-                    <img src="../src/img/title2.png" class="title2">
-                    <div class="iconword1">省市数据</div>
-                    <div class="iconword2">分析系统</div>
-                </div>
-                <div id="build"></div>
+        </div>
+        <div id="data-top-center" class="data-item center">
+            <div class="icondiv">
+                <img src="../src/img/show.png" class="icon">
+                <img src="../src/img/title1.png" class="title1">
+                <img src="../src/img/title2.png" class="title2">
+                <div class="iconword1">省市数据</div>
+                <div class="iconword2">分析系统</div>
             </div>
-            <div id="data-top-right"></div>
+            <div id="build"></div>
         </div>
-        <div id="data-bottom">
-            <div id="data-bottom-left"></div>
-            <div id="data-bottom-center"></div>
-            <div id="data-bottom-right"></div>
-        </div>
+        <div id="data-top-right" class="data-item"></div>
+        <div id="data-bottom-left" class="data-item"></div>
+        <div id="data-bottom-center" class="data-item"></div>
+        <div id="data-bottom-right" class="data-item"></div>
     </div>
     <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts-en.min.js"></script>
     <script src="../src/js/jquery-3.3.1.min.js"></script>

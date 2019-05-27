@@ -144,7 +144,7 @@ function setChart1Option(data1,data2,data3){
             orient: 'vertical',
             x: 'left',
             top: '5',
-            data:['第一产业增加值','第二产业增加值','第三产业增加值'],
+            data:['第一产业','第二产业','第三产业'],
             textStyle:{
                 color: '#ffffff'
             }
@@ -168,9 +168,9 @@ function setChart1Option(data1,data2,data3){
                     }
                 },
                 data:[
-                    {value:data1, name:'第一产业增加值'},
-                    {value:data2, name:'第二产业增加值'},
-                    {value:data3, name:'第三产业增加值'},
+                    {value:data1, name:'第一产业'},
+                    {value:data2, name:'第二产业'},
+                    {value:data3, name:'第三产业'},
                 ]
             }
         ]
